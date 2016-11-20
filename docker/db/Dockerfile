@@ -8,6 +8,7 @@ RUN apt-get update && \
 
 RUN sed -i -e "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
+COPY webuser.sql /tmp/webuser.sql
 COPY mysqlrun.sh /tmp/mysql_run.sh
 RUN chmod +x /tmp/mysql_run.sh
 
