@@ -15,9 +15,10 @@ ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
    
-COPY signup /var/www/html/signup
+COPY site /var/www/html/site
 COPY phpinfo.php /var/www/html/
 COPY php.ini /etc/php5/apache2/
+
 
 EXPOSE 80
 

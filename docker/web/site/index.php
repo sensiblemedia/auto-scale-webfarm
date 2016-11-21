@@ -2,7 +2,7 @@
 session_start();
 require_once 'class.user.php';
 $user_login = new USER();
-echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 if($user_login->is_logged_in()!="")
 {
 	$user_login->redirect('home.php');

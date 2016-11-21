@@ -7,7 +7,7 @@ if(!$user_home->is_logged_in())
 {
 	$user_home->redirect('index.php');
 }
-echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 $stmt = $user_home->runQuery("SELECT * FROM tbl_users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -54,22 +54,22 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         </ul>
                         <ul class="nav">
                             <li class="active">
-                                <a href="http://www.codingcage.com/">Coding Cage</a>
+                                <a href="http://thefarm.com/site">Menu A</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Tutorials <b class="caret"></b>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Menu B<b class="caret"></b>
 
                                 </a>
                                 <ul class="dropdown-menu" id="menu1">
-                                    <li><a href="http://www.codingcage.com/search/label/PHP OOP">PHP OOP</a></li>
-                                    <li><a href="http://www.codingcage.com/search/label/PDO">PHP PDO</a></li>
-                                    <li><a href="http://www.codingcage.com/search/label/jQuery">jQuery</a></li>
-                                    <li><a href="http://www.codingcage.com/search/label/Bootstrap">Bootstrap</a></li>
-                                    <li><a href="http://www.codingcage.com/search/label/CRUD">CRUD</a></li>
+                                    <li><a href="http://thefarm.com/site/home.php">option 1</a></li>
+                                    <li><a href="http://thefarm.com/site/home.php">option 2</a></li>
+                                    <li><a href="http://thefarm.com/site/home.php">option 3</a></li>
+                                    <li><a href="http://thefarm.com/site/home.php">option 4</a></li>
+                                    <li><a href="http://thefarm.com/site/home.php">option 5</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="http://www.codingcage.com/2015/09/login-registration-email-verification-forgot-password-php.html">Tutorial Link</a>
+                                <a href="http://thefarm.com/site/home.php">Menu C</a>
                             </li>
                             
                             
@@ -79,6 +79,13 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
+
+       <?php 
+
+       //echo '<pre>' .  php_uname ([ string $mode = "a" ] ) . '</pre>';
+       //echo '<pre>' .  getHostByName(getHostName()) . '</pre>';
+        ?>
+
         
         <!--/.fluid-container-->
         <script src="bootstrap/js/jquery-1.9.1.min.js"></script>
