@@ -1,0 +1,28 @@
+>> DEBUG LOG START
+
+{{ $CurrentContainer := where $ "ID" .Docker.CurrentContainerID | first }}
+
+.Docker.CurrentContainerID: {{ .Docker.CurrentContainerID }}
+CurrentContainer: {{ $CurrentContainer }}
+Known networks:
+{{ range $knownNetwork := $CurrentContainer.Networks }}
+        - {{ $knownNetwork }}
+{{ end }}
+
+{{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
+
+Iterating {{ $host }} containers
+{{ range $container := $containers }}
+                {{ $addrLen := len $container.Addresses }}
+                Name: {{ $container.Name }}
+                Exposed ports: {{ range $index, $address := $container.Addresses }} {{ if $index }},{{ end }} {{ $address.Port }} {{ end }}
+                Networks:
+                {{ range $containerNetwork := $container.Networks }}
+                        - {{ $containerNetwork }}
+                {{ end }}
+{{ end }}
+
+End {{ $host }} containers
+{{ end }}
+
+>> DEBUG LOG END
