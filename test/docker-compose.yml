@@ -7,9 +7,14 @@ volumes:
 services:
         web:
             build: docker/web
+            environment:
+                - DEPLOYMENT_ENV=test
             links:
                 - db:db
                 - redis
+            labels:
+                - "com.example.description=test"
+
 
         db:
             build: docker/db
@@ -49,4 +54,4 @@ services:
                 - "BACKEND=web"
                 - "BACKEND_PORT=80"
                 - "SERVICE=haproxy"
-                - "PROJECT=autoscalewebfarm"
+                - "PROJECT=test"
