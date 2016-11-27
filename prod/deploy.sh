@@ -7,11 +7,11 @@ echo "${DO_TOKEN}"
 echo "${DO_SIZE}"
 echo "${GIT_COMMIT_LATEST_HASH}"
 githash="${GIT_COMMIT_LATEST_HASH}"
-echo $hash
+echo $githash
 echo "Docker-machine create \
     --driver ${DO_DRIVE} \
     --digitalocean-access-token=${DO_TOKEN} \
     --digitalocean-size=${DO_SIZE} \
     --digitalocean-region=${DO_REGION} \
-    ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" > ./docs/doc-${githash}.out
+    ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" 1> ./docs/doc-${githash}.out
 
