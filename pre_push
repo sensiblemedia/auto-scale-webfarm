@@ -1,0 +1,30 @@
+#!/bin/bash
+
+unset DOCKER_CERT_PATH
+export GIT_COMMIT_LATEST_HASH=$(git show --pretty=%h)
+echo $GIT_COMMIT_LATEST_HASH
+#asciinema rec -w 2.5 auditi_${GIT_COMMIT_LATEST_HASH}.json &
+echo "In pre push"
+echo "Stopping Dev Enviroment"
+
+ docker-compose stop && \
+    echo "Building Test Enviroment" && \
+  #  docker-compose -f ./docker-compose-test.yml build && \
+    echo "Starting Test Enviroment" && \
+  #  docker-compose -f ./docker-compose-test.yml up -d && \
+    echo "Running Acceptance Tests....."
+    ./test/tests.sh
+    if [[ $? -ne 0 ]] ; then
+        echo "Acceptance Test Failed Not Pushing To Prod!"
+        exit 1
+    else
+        echo "Test Run Successful Pushing to Production"
+        ./prod/deploy.sh
+        git add -A
+        git commit --quiet -a -m "Deploy ${GIT_COMMIT_LATEST_HASH}" >> /dev/null
+        git push --no-verify
+    fi
+
+
+
+echo $?

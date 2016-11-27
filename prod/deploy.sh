@@ -5,9 +5,10 @@ source ./prod/digitalocean.env
 
 echo "${DO_TOKEN}"
 echo "${DO_SIZE}"
-echo "${GIT_COMMIT_LATEST_HASH}"
-githash="${GIT_COMMIT_LATEST_HASH}"
-echo $githash
+echo "GITHASH = ${GIT_COMMIT_LATEST_HASH}"
+githash="${GIT_COMMIT_LATEST_HASH}" 
+
+echo "hash=$githash"
 touch "donkey"
 echo "Docker-machine create \
     --driver ${DO_DRIVE} \
