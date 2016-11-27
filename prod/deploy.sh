@@ -16,7 +16,7 @@ echo "GITHASH = ${GIT_COMMIT_LATEST_HASH}"
     # "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" 
 
 echo "Setting Docker-Machine Enviroment"
- /usr/local/bin/docker-machine env "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}"
+/usr/local/bin/docker-machine env "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}"
 eval $(/usr/local/bin/docker-machine env "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}")
 echo "Copying over deplyment"
 exec docker-machine scp -r ./docker "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}":$PWD
