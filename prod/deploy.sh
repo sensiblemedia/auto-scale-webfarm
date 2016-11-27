@@ -11,7 +11,7 @@ githash="${GIT_COMMIT_LATEST_HASH}"
 echo "hash=$githash"
 #touch ./doc/$hash
 #exec 3<>./doc/host.info
-docker-machine create --driver ${DO_DRIVE} --digitalocean-access-token=${DO_TOKEN} --digitalocean-size=${DO_SIZE} --digitalocean-region=${DO_REGION} ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH} 
+/usr/local/bin/docker-machine create --driver ${DO_DRIVE} --digitalocean-access-token=${DO_TOKEN} --digitalocean-size=${DO_SIZE} --digitalocean-region=${DO_REGION} ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH} 
 
 #exec 3>&-
 
