@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./digitalocean.env
+source ./prod/digitalocean.env
 
 echo "${DO_TOKEN}"
 echo "${DO_SIZE}"
