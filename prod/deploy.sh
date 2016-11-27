@@ -8,7 +8,7 @@ echo "${DO_SIZE}"
 echo "${GIT_COMMIT_LATEST_HASH}"
 githash="${GIT_COMMIT_LATEST_HASH}"
 echo $githash
-touch "doc_${GIT_COMMIT_LATEST_HASH}"
+touch "donkey"
 echo "Docker-machine create \
     --driver ${DO_DRIVE} \
     --digitalocean-access-token=${DO_TOKEN} \
