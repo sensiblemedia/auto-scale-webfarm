@@ -1,0 +1,5 @@
+Docker-machine create     --driver digitalocean     --digitalocean-access-token=6766bb8582b1d78b959d16344a19bdca3efbc6740b36992d425e48605e44b7ad     --digitalocean-size=512mb     --digitalocean-region=lon     prod-lon-512mb-197b728
+
+diff --git a/out b/out
+deleted file mode 100644
+index e69de29..0000000

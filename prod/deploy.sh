@@ -11,5 +11,5 @@ echo "Docker-machine create \
     --digitalocean-access-token=${DO_TOKEN} \
     --digitalocean-size=${DO_SIZE} \
     --digitalocean-region=${DO_REGION} \
-    ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" > /doc/doc.out
+    ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" > ./doc/doc.out
 
