@@ -10,7 +10,7 @@ githash="${GIT_COMMIT_LATEST_HASH}"
 
 echo "hash=$githash"
 #touch ./doc/$hash
-exec 3<>/doc/host.info
+exec 3<>./doc/host.info
 echo "docker-machine create \
     --driver ${DO_DRIVE} \
     --digitalocean-access-token=${DO_TOKEN} \
