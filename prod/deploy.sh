@@ -15,5 +15,10 @@ exec /usr/local/bin/docker-machine create --driver ${DO_DRIVE} \
     --digitalocean-region=${DO_REGION} \
     "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" 
 
+/usr/local/bin/docker-machine env "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}"
+eval $(/usr/local/bin/docker-machine env "${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}")
+docker-compose -f docker-compose-prod.yml build
+docker-compose up -d
+
 
 

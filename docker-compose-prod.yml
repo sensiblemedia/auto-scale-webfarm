@@ -8,14 +8,12 @@ services:
         web:
             build: docker/web
             environment:
-                - DEPLOYMENT_ENV=development
-            volumes:
-                - ./docker/web/site:/var/www/html/site               
+                - DEPLOYMENT_ENV=Production           
             links:
                 - db:db
                 - redis
             labels:
-                - "com.example.description=dev"
+                - "com.example.description=prod"
         db:
             build: docker/db
             environment: 
