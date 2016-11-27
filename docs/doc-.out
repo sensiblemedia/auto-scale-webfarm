@@ -1,13 +1,15 @@
-Docker-machine create     --driver digitalocean     --digitalocean-access-token=6766bb8582b1d78b959d16344a19bdca3efbc6740b36992d425e48605e44b7ad     --digitalocean-size=512mb     --digitalocean-region=lon     prod-lon-512mb-a150eca
+Docker-machine create     --driver digitalocean     --digitalocean-access-token=6766bb8582b1d78b959d16344a19bdca3efbc6740b36992d425e48605e44b7ad     --digitalocean-size=512mb     --digitalocean-region=lon     prod-lon-512mb-49cb64d
 
 diff --git a/prod/deploy.sh b/prod/deploy.sh
-index c52b4f5..9bde5f6 100755
+index 8862012..6219080 100755
 --- a/prod/deploy.sh
 +++ b/prod/deploy.sh
-@@ -11,5 +11,5 @@ echo "Docker-machine create \
-     --digitalocean-access-token=${DO_TOKEN} \
-     --digitalocean-size=${DO_SIZE} \
-     --digitalocean-region=${DO_REGION} \
--    ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" > ./doc/doc.out
-+    ${DO_INSTANCE}-${DO_REGION}-${DO_SIZE}-${GIT_COMMIT_LATEST_HASH}" > ./docs/doc-${GIT_COMMIT_LATEST_HASH}.out
- 
+@@ -6,7 +6,7 @@ source ./prod/digitalocean.env
+ echo "${DO_TOKEN}"
+ echo "${DO_SIZE}"
+ echo "${GIT_COMMIT_LATEST_HASH}"
+-hash = "${GIT_COMMIT_LATEST_HASH}
++hash = "${GIT_COMMIT_LATEST_HASH}""
+ echo $hash
+ echo "Docker-machine create \
+     --driver ${DO_DRIVE} \
