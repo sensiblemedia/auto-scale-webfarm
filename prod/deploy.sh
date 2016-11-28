@@ -4,11 +4,11 @@ echo "######################## IN DEPLOYMENT ########################"
 source ./prod/digitalocean.env
 export GIT_COMMIT_LATEST_HASH=$(git log -n 1 | head -n 1 | sed -e 's/^commit //' | head -c 8)
 #GIT_COMMIT_LATEST_HASH=d92f1428
-echo "${DO_TOKEN}"
-echo "${DO_SIZE}"
-echo "${DO_REGION}"
+# echo "${DO_TOKEN}"
+# echo "${DO_SIZE}"
+# echo "${DO_REGION}"
 echo "GITHASH = ${GIT_COMMIT_LATEST_HASH}"
- 
+  
 
 /usr/local/bin/docker-machine create --driver ${DO_DRIVE} \
        --digitalocean-access-token=${DO_TOKEN} \
